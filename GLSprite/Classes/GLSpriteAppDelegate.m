@@ -56,6 +56,15 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+	window      = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	glView      = [[EAGLView alloc] initWithFrame: window.frame];
+
+	window.backgroundColor      = [UIColor whiteColor]; 
+	[window addSubview: glView];
+	[window makeKeyAndVisible];
+
+#endif
 	[glView startAnimation];
 }
 

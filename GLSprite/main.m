@@ -51,7 +51,11 @@
 int main(int argc, char *argv[]) {
 	
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+	int retVal = UIApplicationMain(argc, argv, nil, @"GLSpriteAppDelegate");
+#else
 	int retVal = UIApplicationMain(argc, argv, nil, nil);
+#endif
 	[pool release];
 	return retVal;
 }

@@ -49,11 +49,20 @@
  
 */
 
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+#import <StellaAnimation/StellaAnimation.h>
+#else
 #import <QuartzCore/QuartzCore.h>
+#endif
 #import <OpenGLES/EAGLDrawable.h>
 
 #import "EAGLView.h"
 
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+@interface SVScreen (StellaPrivate)
+- (CGRect) physicalBounds;
+@end
+#endif
 @interface EAGLView (EAGLViewPrivate)
 
 - (BOOL)createFramebuffer;
@@ -80,9 +89,15 @@
 
 
 //The GL view is stored in the nib file. When it's unarchived it's sent -initWithCoder:
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+- (id) initWithFrame: (CGRect) frame
+{
+	if (self = [super initWithFrame: frame]) {
+#else
 - (id)initWithCoder:(NSCoder*)coder
 {
 	if((self = [super initWithCoder:coder])) {
+#endif
 		// Get the layer
 		CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
 		
@@ -103,12 +118,18 @@
 		displayLink = nil;
 		animationTimer = nil;
 		
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+#else
 		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
 		// class is used as fallback when it isn't available.
 		NSString *reqSysVer = @"3.1";
 		NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
 		if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
 			displayLinkSupported = TRUE;
+#endif
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+        displayLinkSupported = TRUE;
+#endif
 		
 		[self setupView];
 		[self drawView];
@@ -198,7 +219,11 @@
 			// if the system version runtime check for CADisplayLink exists in -initWithCoder:. The runtime check ensures this code will
 			// not be called in system versions earlier than 3.1.
 			
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+			displayLink = [NSClassFromString(@"SADisplayLink") displayLinkWithTarget:self selector:@selector(drawView)];
+#else
 			displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(drawView)];
+#endif
 			[displayLink setFrameInterval:animationFrameInterval];
 			[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 		}
@@ -280,7 +305,11 @@ const GLshort spriteTexcoords[] = {
 		// Allocated memory needed for the bitmap context
 		spriteData = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
 		// Uses the bitmap creation function provided by the Core Graphics framework. 
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+#else
 		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+#endif
 		// After you create the context, you can draw the sprite image to the context.
 		CGContextDrawImage(spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
 		// You don't need the context at this point, so you need to release it to avoid memory leaks.
@@ -313,6 +342,9 @@ const GLshort spriteTexcoords[] = {
 	[EAGLContext setCurrentContext:context];
 	
 	glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
+#if defined (__STELLA_VERSION_MAX_ALLOWED) && defined (__STELLA_NANDROID)
+    glViewport (0, 0, backingWidth, backingHeight);
+#endif
 	glRotatef(3.0f, 0.0f, 0.0f, 1.0f);
 	
 	glClear(GL_COLOR_BUFFER_BIT);
