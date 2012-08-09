@@ -58,11 +58,6 @@
 
 #import "EAGLView.h"
 
-#if defined (__STELLA_VERSION_MAX_ALLOWED)
-@interface SVScreen (StellaPrivate)
-- (CGRect) physicalBounds;
-@end
-#endif
 @interface EAGLView (EAGLViewPrivate)
 
 - (BOOL)createFramebuffer;
@@ -118,18 +113,12 @@
 		displayLink = nil;
 		animationTimer = nil;
 		
-#if defined (__STELLA_VERSION_MAX_ALLOWED)
-#else
 		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
 		// class is used as fallback when it isn't available.
 		NSString *reqSysVer = @"3.1";
 		NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
 		if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
 			displayLinkSupported = TRUE;
-#endif
-#if defined (__STELLA_VERSION_MAX_ALLOWED)
-        displayLinkSupported = TRUE;
-#endif
 		
 		[self setupView];
 		[self drawView];
@@ -305,11 +294,7 @@ const GLshort spriteTexcoords[] = {
 		// Allocated memory needed for the bitmap context
 		spriteData = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
 		// Uses the bitmap creation function provided by the Core Graphics framework. 
-#if defined (__STELLA_VERSION_MAX_ALLOWED)
-		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-#else
 		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
-#endif
 		// After you create the context, you can draw the sprite image to the context.
 		CGContextDrawImage(spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
 		// You don't need the context at this point, so you need to release it to avoid memory leaks.
