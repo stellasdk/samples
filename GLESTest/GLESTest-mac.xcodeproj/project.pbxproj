@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		354f8eaa91676ef656615dae /* StellaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6663887ebc706fb9d8a7bc79 /* StellaKit.framework */; };
+		7a89b859429947ed24700951 /* libGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46c60494b00cba0378dcef60 /* libGL.dylib */; };
+		E33D3EF41602DB5D00EB0C58 /* yeecco-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E33D3EF31602DB5D00EB0C58 /* yeecco-logo.png */; };
+		bbae2ab69808a11d7931f9a3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9bff62be53a7baa734516390 /* Foundation.framework */; };
+		bed442f2ad40bf346e95bd5e /* StellaGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69a556b2f2938f0170d07a0a /* StellaGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17d39017a083d1ea97465f7c /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = /System/Library/Frameworks/OpenAL.framework; sourceTree = "<absolute>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* GLESTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLESTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		261bfdf747e7afa58566520b /* cocos2d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = cocos2d.framework; path = /opt/StellaSDK/mac/System/Library/Frameworks/cocos2d.framework; sourceTree = "<absolute>"; };
+		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3ddaca9e705e9f24f60320c4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		46c60494b00cba0378dcef60 /* libGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGL.dylib; path = /usr/X11/lib/libGL.dylib; sourceTree = "<absolute>"; };
+		563FA4CE160062A80037FD7B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		563FA4D1160062A80037FD7B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		563FA4D2160062A80037FD7B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		563FA4D3160062A80037FD7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		563FA4DB160062A80037FD7B /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		563FA4DC160062A80037FD7B /* Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		6663887ebc706fb9d8a7bc79 /* StellaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StellaKit.framework; path = /opt/StellaSDK/mac/System/Library/Frameworks/StellaKit.framework; sourceTree = "<absolute>"; };
+		69a556b2f2938f0170d07a0a /* StellaGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StellaGraphics.framework; path = /opt/StellaSDK/mac/System/Library/Frameworks/StellaGraphics.framework; sourceTree = "<absolute>"; };
+		9bff62be53a7baa734516390 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		E33D3EF31602DB5D00EB0C58 /* yeecco-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yeecco-logo.png"; sourceTree = "<group>"; };
+		ad128ce5e531ee70932b4b40 /* StellaMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StellaMedia.framework; path = /opt/StellaSDK/mac/System/Library/Frameworks/StellaMedia.framework; sourceTree = "<absolute>"; };
+		f112cb9161c4544f1fe3ae17 /* StellaStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StellaStore.framework; path = /opt/StellaSDK/mac/System/Library/Frameworks/StellaStore.framework; sourceTree = "<absolute>"; };
+		fcedd58a09991f287772d4d1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				bbae2ab69808a11d7931f9a3 /* Foundation.framework in Frameworks */,
+				bed442f2ad40bf346e95bd5e /* StellaGraphics.framework in Frameworks */,
+				354f8eaa91676ef656615dae /* StellaKit.framework in Frameworks */,
+				7a89b859429947ed24700951 /* libGL.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28FD14FC0DC6FC130079059D /* EAGLView.h */,
+				28FD14FD0DC6FC130079059D /* EAGLView.m */,
+				1D3623240D0F684500981E51 /* AppDelegate.h */,
+				1D3623250D0F684500981E51 /* AppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0820fe3515f49620b9f5d5cb /* StellaSDK frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69a556b2f2938f0170d07a0a /* StellaGraphics.framework */,
+				6663887ebc706fb9d8a7bc79 /* StellaKit.framework */,
+				261bfdf747e7afa58566520b /* cocos2d.framework */,
+				ad128ce5e531ee70932b4b40 /* StellaMedia.framework */,
+				f112cb9161c4544f1fe3ae17 /* StellaStore.framework */,
+			);
+			name = "StellaSDK frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* GLESTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				563FA46F160042FA0037FD7B /* Resources */,
+				563FA4D4160062A80037FD7B /* Common */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				e130444b9d1037ddd3abf8aa /* External frameworks */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				563FA4CE160062A80037FD7B /* Cocoa.framework */,
+				563FA4D0160062A80037FD7B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49677deffccd644d82d66d3d /* System frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3ddaca9e705e9f24f60320c4 /* AppKit.framework */,
+				17d39017a083d1ea97465f7c /* OpenAL.framework */,
+				fcedd58a09991f287772d4d1 /* AudioToolbox.framework */,
+				9bff62be53a7baa734516390 /* Foundation.framework */,
+				46c60494b00cba0378dcef60 /* libGL.dylib */,
+			);
+			name = "System frameworks";
+			sourceTree = "<group>";
+		};
+		563FA46F160042FA0037FD7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E33D3EF31602DB5D00EB0C58 /* yeecco-logo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		563FA4D0160062A80037FD7B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				563FA4D1160062A80037FD7B /* AppKit.framework */,
+				563FA4D2160062A80037FD7B /* CoreData.framework */,
+				563FA4D3160062A80037FD7B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		563FA4D4160062A80037FD7B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				563FA4DB160062A80037FD7B /* Common.h */,
+				563FA4DC160062A80037FD7B /* Common.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		69ab7802605e0ec5b0415ffe /* Platform sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Platform sources";
+			sourceTree = "<group>";
+		};
+		e130444b9d1037ddd3abf8aa /* External frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0820fe3515f49620b9f5d5cb /* StellaSDK frameworks */,
+				49677deffccd644d82d66d3d /* System frameworks */,
+				69ab7802605e0ec5b0415ffe /* Platform sources */,
+			);
+			name = "External frameworks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* GLESTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GLESTest" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			name = GLESTest;
+			productName = GLSprite;
+			productReference = 1D6058910D05DD3D006BFB54 /* GLESTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GLESTest-mac" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* GLESTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33D3EF41602DB5D00EB0C58 /* yeecco-logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = /opt/StellaSDK/mac/System/Library/Frameworks;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					/usr/X11/include,
+					/opt/StellaSDK/mac/System/Library/Frameworks/cocos2d.framework/Headers,
+					/opt/StellaSDK/mac/System/Library/Frameworks/StellaMedia.framework/Headers,
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /opt/StellaSDK/mac/Applications;
+				LIBRARY_SEARCH_PATHS = /usr/X11/lib;
+				OTHER_CFLAGS = "-D__STELLA_VERSION_MAX_ALLOWED";
+				PRODUCT_NAME = GLESTest;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = /opt/StellaSDK/mac/System/Library/Frameworks;
+				HEADER_SEARCH_PATHS = (
+					/usr/X11/include,
+					/opt/StellaSDK/mac/System/Library/Frameworks/cocos2d.framework/Headers,
+					/opt/StellaSDK/mac/System/Library/Frameworks/StellaMedia.framework/Headers,
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /opt/StellaSDK/mac/Applications;
+				LIBRARY_SEARCH_PATHS = /usr/X11/lib;
+				OTHER_CFLAGS = "-D__STELLA_VERSION_MAX_ALLOWED";
+				PRODUCT_NAME = GLESTest;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+				SYMROOT = "build-mac";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+				SYMROOT = "build-mac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GLESTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GLESTest-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
