@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		3ee3bb6a558d3efd3456bbc9 /* libStellaGraphics.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e37c05cb8f426807403ece23 /* libStellaGraphics.so */; };
+		563FA4E9160064E70037FD7B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 563FA4E6160064E70037FD7B /* Common.m */; };
+		613b59c54ee0ee8f7d484490 /* libStellaKit.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e656c59691b08d3a8aec1f95 /* libStellaKit.so */; };
+		6fce77d576827ad04ae66144 /* libopenal.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = ec627326f1255e11617930b9 /* libopenal.so */; };
+		8f1b27725683da30bcf9e328 /* libfreetype.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = 7544245706e48d6a824f6518 /* libfreetype.so */; };
+		b775b669ff5ec500e5bfcad3 /* android-main.m in Sources */ = {isa = PBXBuildFile; fileRef = d96bed0fb3eeacff6139c37f /* android-main.m */; };
+		eaa74fc1954913e94ec76425 /* libFoundation.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = 0d49550fbe63dd4b9c0b6098 /* libFoundation.so */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		01fab08bc773e7e467a8c731 /* Copy Files (assets) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SOURCE_ROOT)/$(PRODUCT_NAME)-android/assets/Resources";
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			name = "Copy Files (assets)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		efebf3d9dd75adba41a12532 /* Copy Files (libs) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				6fce77d576827ad04ae66144 /* libopenal.so in Copy Files (libs) */,
+				8f1b27725683da30bcf9e328 /* libfreetype.so in Copy Files (libs) */,
+				eaa74fc1954913e94ec76425 /* libFoundation.so in Copy Files (libs) */,
+				3ee3bb6a558d3efd3456bbc9 /* libStellaGraphics.so in Copy Files (libs) */,
+				613b59c54ee0ee8f7d484490 /* libStellaKit.so in Copy Files (libs) */,
+			);
+			name = "Copy Files (libs)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		002207573a51c827fde50f99 /* libStellaStore.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libStellaStore.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libStellaStore.so"; sourceTree = "<absolute>"; };
+		0d49550fbe63dd4b9c0b6098 /* libFoundation.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libFoundation.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libFoundation.so"; sourceTree = "<absolute>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* libJNITest.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libJNITest.so; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		28FD14FD0DC6FC130079059D /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		563FA4E5160064E70037FD7B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		563FA4E6160064E70037FD7B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		7544245706e48d6a824f6518 /* libfreetype.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libfreetype.so; path = "/opt/StellaSDK/arm-google-android/usr/lib/libfreetype.so"; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		d96bed0fb3eeacff6139c37f /* android-main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "android-main.m"; path = "/opt/StellaSDK/share/android/jni/android-main.m"; sourceTree = "<absolute>"; };
+		e37c05cb8f426807403ece23 /* libStellaGraphics.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libStellaGraphics.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libStellaGraphics.so"; sourceTree = "<absolute>"; };
+		e656c59691b08d3a8aec1f95 /* libStellaKit.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libStellaKit.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libStellaKit.so"; sourceTree = "<absolute>"; };
+		e6f623214e08bb8fe89c25ce /* libcocos2d.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libcocos2d.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libcocos2d.so"; sourceTree = "<absolute>"; };
+		ec627326f1255e11617930b9 /* libopenal.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libopenal.so; path = "/opt/StellaSDK/arm-google-android/usr/lib/libopenal.so"; sourceTree = "<absolute>"; };
+		f92d86656634d4ce0b7bedce /* libStellaMedia.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libStellaMedia.so; path = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks/libStellaMedia.so"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28FD14FC0DC6FC130079059D /* EAGLView.h */,
+				28FD14FD0DC6FC130079059D /* EAGLView.m */,
+				1D3623240D0F684500981E51 /* AppDelegate.h */,
+				1D3623250D0F684500981E51 /* AppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0820fe3515f49620b9f5d5cb /* StellaSDK frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ec627326f1255e11617930b9 /* libopenal.so */,
+				7544245706e48d6a824f6518 /* libfreetype.so */,
+				0d49550fbe63dd4b9c0b6098 /* libFoundation.so */,
+				e37c05cb8f426807403ece23 /* libStellaGraphics.so */,
+				e656c59691b08d3a8aec1f95 /* libStellaKit.so */,
+				e6f623214e08bb8fe89c25ce /* libcocos2d.so */,
+				f92d86656634d4ce0b7bedce /* libStellaMedia.so */,
+				002207573a51c827fde50f99 /* libStellaStore.so */,
+			);
+			name = "StellaSDK frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* libJNITest.so */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				563FA4E3160064E60037FD7B /* Common */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				e130444b9d1037ddd3abf8aa /* External frameworks */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
+				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
+				1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49677deffccd644d82d66d3d /* System frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "System frameworks";
+			sourceTree = "<group>";
+		};
+		563FA4E3160064E60037FD7B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				563FA4E5160064E70037FD7B /* Common.h */,
+				563FA4E6160064E70037FD7B /* Common.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		69ab7802605e0ec5b0415ffe /* Platform sources */ = {
+			isa = PBXGroup;
+			children = (
+				d96bed0fb3eeacff6139c37f /* android-main.m */,
+			);
+			name = "Platform sources";
+			sourceTree = "<group>";
+		};
+		e130444b9d1037ddd3abf8aa /* External frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0820fe3515f49620b9f5d5cb /* StellaSDK frameworks */,
+				49677deffccd644d82d66d3d /* System frameworks */,
+				69ab7802605e0ec5b0415ffe /* Platform sources */,
+			);
+			name = "External frameworks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* JNITest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "JNITest" */;
+			buildPhases = (
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				01fab08bc773e7e467a8c731 /* Copy Files (assets) */,
+				efebf3d9dd75adba41a12532 /* Copy Files (libs) */,
+			);
+			buildRules = (
+			);
+			name = JNITest;
+			productName = GLSprite;
+			productReference = 1D6058910D05DD3D006BFB54 /* libJNITest.so */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "JNITest-android" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* JNITest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
+				b775b669ff5ec500e5bfcad3 /* android-main.m in Sources */,
+				563FA4E9160064E70037FD7B /* Common.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_EXTENSION = so;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"/opt/StellaSDK/arm-google-android/usr/include",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks/cocos2d.framework/Headers",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks/StellaMedia.framework/Headers",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SOURCE_ROOT)/$(PRODUCT_NAME)-android/jni";
+				LIBRARY_SEARCH_PATHS = (
+					"/opt/StellaSDK/arm-google-android/usr/lib",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"-stella_target",
+					"arm-google-android",
+					"-D__STELLA_NANDROID",
+					"-D__STELLA_VERSION_MAX_ALLOWED",
+				);
+				OTHER_LDFLAGS = (
+					"-stella_target",
+					"arm-google-android",
+					"-lm",
+					"-llog",
+					"-landroid",
+					"-lGLESv1_CM",
+					"-lFoundation",
+					"-lStellaGraphics",
+					"-lStellaKit",
+					"-Wl,--no-undefined",
+				);
+				PRODUCT_NAME = JNITest;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_EXTENSION = so;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "/opt/StellaSDK/arm-google-android/System/Library/Frameworks";
+				HEADER_SEARCH_PATHS = (
+					"/opt/StellaSDK/arm-google-android/usr/include",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks/cocos2d.framework/Headers",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks/StellaMedia.framework/Headers",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SOURCE_ROOT)/$(PRODUCT_NAME)-android/jni";
+				LIBRARY_SEARCH_PATHS = (
+					"/opt/StellaSDK/arm-google-android/usr/lib",
+					"/opt/StellaSDK/arm-google-android/System/Library/Frameworks",
+				);
+				OTHER_CFLAGS = (
+					"-stella_target",
+					"arm-google-android",
+					"-D__STELLA_NANDROID",
+					"-D__STELLA_VERSION_MAX_ALLOWED",
+				);
+				OTHER_LDFLAGS = (
+					"-stella_target",
+					"arm-google-android",
+					"-lm",
+					"-llog",
+					"-landroid",
+					"-lGLESv1_CM",
+					"-lFoundation",
+					"-lStellaGraphics",
+					"-lStellaKit",
+					"-Wl,--no-undefined",
+					"-s",
+				);
+				PRODUCT_NAME = JNITest;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.yeecco.compilers.android.clang.1.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+				SYMROOT = "build-arm-google-android";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.yeecco.compilers.android.clang.1.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+				SYMROOT = "build-arm-google-android";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "JNITest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "JNITest-android" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

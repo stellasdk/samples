@@ -1,6 +1,9 @@
 /*
-     File: main.m
- Abstract: The main entry point for the GLSprite application.
+     File: EAGLView.h
+ Abstract: This class wraps the CAEAGLLayer from CoreAnimation into a convenient
+ UIView subclass. The view content is basically an EAGL surface you render your
+ OpenGL scene into.  Note that setting the view non-opaque will only work if the
+ EAGL surface has an alpha channel.
  
   Version: 1.9
  
@@ -47,15 +50,40 @@
 */
 
 #import <UIKit/UIKit.h>
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
 
-int main(int argc, char *argv[]) {
+@interface EAGLView : UIView
+{
+	    GLint               backingWidth;
+	    GLint               backingHeight;
 	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-#if defined (__STELLA_VERSION_MAX_ALLOWED)
-	int retVal = UIApplicationMain(argc, argv, nil, @"GLSpriteAppDelegate");
-#else
-	int retVal = UIApplicationMain(argc, argv, nil, nil);
-#endif
-	[pool release];
-	return retVal;
+	    EAGLContext       * context;
+	
+	    GLuint              viewRenderbuffer, viewFramebuffer;
+	    GLuint              depthRenderbuffer;
+	
+	    GLuint              spriteTexture;
+	
+	    BOOL                animating;
+	    NSInteger           animationFrameInterval;
+
+	    id                  displayLink;
 }
+
+@property(readonly, nonatomic, getter=isAnimating) BOOL     animating;
+@property(nonatomic) NSInteger                              animationFrameInterval;
+
+- (BOOL) createFramebuffer;
+- (void) destroyFramebuffer;
+- (void) setupView;
+
+- (NSInteger) animationFrameInterval;
+- (void) setAnimationFrameInterval: (NSInteger) frameInterval;
+
+- (void) startAnimation;
+- (void) stopAnimation;
+- (void) drawView;
+
+@end

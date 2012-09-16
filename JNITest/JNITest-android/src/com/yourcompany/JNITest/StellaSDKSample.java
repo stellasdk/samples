@@ -1,4 +1,4 @@
-package com.yourcompany.sdkfeatures;
+package com.yourcompany.JNITest;
 
 import org.stella.lib.StellaNativeActivity;
 
@@ -15,11 +15,11 @@ public class StellaSDKSample
                 if (_sharedSDKSample == null) {
                         _sharedSDKSample  = new StellaSDKSample (StellaNativeActivity.sharedNativeActivity ());
                 }
-        
+
                 return _sharedSDKSample;
         }
 
-        private NativeActivity          _nativeActivity;        
+        private NativeActivity          _nativeActivity;
         private StellaSDKSample (NativeActivity nativeActivity)
         {
                 _nativeActivity     = nativeActivity;
@@ -27,23 +27,23 @@ public class StellaSDKSample
 
 
         /* JNI interface */
-        public static void sendMessage (String message) 
+        public static void sendMessage (String message)
         {
                 sharedSDKSample ()._sendMessage (message);
         }
 
 
         private static native void nativeCallbackMessage (String message);
-        private void _sendMessage (final String message) 
+        private void _sendMessage (final String message)
         {
                 _nativeActivity.runOnUiThread (new Runnable () {
                         @Override
                         public void run () {
                                 Log.v ("StellaSDKSample", "Got "+ message);
-                                nativeCallbackMessage ("message from Java");
+                                nativeCallbackMessage ("message from Java!");
                         }
                 });
-        } 
+        }
 
 
 }
