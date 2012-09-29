@@ -1,0 +1,15 @@
+assets/Resources
+jni/*.so
+jni/*.app
+
+local.properties
+project.properties
+build.xml
+proguard.cfg
+proguard-project.txt
+
+bin
+gen
+libs/armeabi
+obj
+
