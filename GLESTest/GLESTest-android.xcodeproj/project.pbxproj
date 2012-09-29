@@ -119,7 +119,6 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				563FA4E3160064E60037FD7B /* Common */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				e130444b9d1037ddd3abf8aa /* External frameworks */,
@@ -162,15 +161,6 @@
 			children = (
 			);
 			name = "System frameworks";
-			sourceTree = "<group>";
-		};
-		563FA4E3160064E60037FD7B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				563FA4E5160064E70037FD7B /* Common.h */,
-				563FA4E6160064E70037FD7B /* Common.m */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		69ab7802605e0ec5b0415ffe /* Platform sources */ = {
