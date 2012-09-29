@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>StellaSimulatorMode</key>
+    <string>GALAXY_SII</string>
+    <key>StellaUserInterfaceIdiom</key>
+    <string>StellaUserInterfaceIdiomPhone</string>
+    <key>StellaPublishingLicenceKey</key>
+    <string>48680e777ae6d7e86043b65f9b62a4a4</string>
+</dict>
+</plist>
