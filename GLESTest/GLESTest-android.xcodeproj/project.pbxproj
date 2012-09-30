@@ -64,8 +64,6 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		563FA4E5160064E70037FD7B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		563FA4E6160064E70037FD7B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		56660BCC1605F37F00E1816D /* yeecco-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yeecco-logo.png"; sourceTree = "<group>"; };
 		56BE4C7316174437007C6FC7 /* Info-Stella.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Stella.plist"; sourceTree = "<group>"; };
 		7544245706e48d6a824f6518 /* libfreetype.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libfreetype.so; path = "/opt/StellaSDK/arm-google-android/usr/lib/libfreetype.so"; sourceTree = "<absolute>"; };
