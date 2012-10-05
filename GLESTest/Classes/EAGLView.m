@@ -209,6 +209,21 @@ static GLuint initProgram (const char * vertexSource, const char * fragmentSourc
         glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
         glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
 
+    #if defined (RENDER_WITH_DEPTH_BUFFER)
+        NSLog (@"attach a depth buffer");
+        NSUInteger      widePOT     = 1;
+        NSUInteger      highPOT     = 1;
+        while (widePOT < backingWidth)      widePOT <<= 1;
+        while (highPOT < backingHeight)     highPOT <<= 1;
+    #endif
+
+    #if defined (RENDER_WITH_DEPTH_BUFFER)
+        glGenRenderbuffers (1, &depthRenderbuffer);
+        glBindRenderbuffer (GL_RENDERBUFFER_OES, depthRenderbuffer);
+        glRenderbufferStorage (GL_RENDERBUFFER_OES, GL_DEPTH_COMPONENT16, widePOT, highPOT);
+        glFramebufferRenderbuffer (GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER_OES, depthRenderbuffer);
+    #endif
+
         if (glCheckFramebufferStatusOES (GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
                 NSLog (@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES (GL_FRAMEBUFFER_OES));
                 return NO;
