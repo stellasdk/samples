@@ -19,23 +19,23 @@
 
 @interface EAGLView : UIView
 {
-	    GLint               backingWidth;
-	    GLint               backingHeight;
-	
-	    EAGLContext       * context;
-	
-	    GLuint              viewRenderbuffer, viewFramebuffer;
-	    GLuint              depthRenderbuffer;
-	
-	    GLuint              spriteTexture;
-	
-	    BOOL                animating;
-	    BOOL                displayLinkSupported;
-	    NSInteger           animationFrameInterval;
+        GLint               backingWidth;
+        GLint               backingHeight;
 
-	    id                  displayLink;
-	    NSTimer           * animationTimer;
-	    
+        EAGLContext       * context;
+
+        GLuint              viewRenderbuffer, viewFramebuffer;
+        GLuint              depthRenderbuffer;
+
+        GLuint              spriteTexture;
+
+        BOOL                animating;
+        BOOL                displayLinkSupported;
+        NSInteger           animationFrameInterval;
+
+        id                  displayLink;
+        NSTimer           * animationTimer;
+
     #if defined (RENDER_USING_ES2)
         GLuint              shaderProgram;
         GLuint              attributeLocation_Vertex;

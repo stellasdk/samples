@@ -12,37 +12,37 @@
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application
 {
-    	window      = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    	glView      = [[EAGLView alloc] initWithFrame: window.frame];
+        window      = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        glView      = [[EAGLView alloc] initWithFrame: window.frame];
 
-    	window.backgroundColor      = [UIColor whiteColor];
-    	[window addSubview: glView];
-    	[window makeKeyAndVisible];
+        window.backgroundColor      = [UIColor whiteColor];
+        [window addSubview: glView];
+        [window makeKeyAndVisible];
 
-	    [glView startAnimation];
+        [glView startAnimation];
 }
 
 - (void) applicationWillResignActive: (UIApplication *) application
 {
-	    [glView stopAnimation];
+        [glView stopAnimation];
 }
 
 - (void) applicationDidBecomeActive: (UIApplication *) application
 {
-	    [glView startAnimation];
+        [glView startAnimation];
 }
 
 - (void)applicationWillTerminate: (UIApplication *) application
 {
-	    [glView stopAnimation];
+        [glView stopAnimation];
 }
 
 - (void) dealloc
 {
-    	[window release];
-    	[glView release];
+        [window release];
+        [glView release];
 
-    	[super dealloc];
+        [super dealloc];
 }
 
 @end

@@ -8,8 +8,8 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>
 {
-    	IBOutlet UIWindow     * window;
-    	IBOutlet EAGLView     * glView;
+        IBOutlet UIWindow     * window;
+        IBOutlet EAGLView     * glView;
 }
 
 @property (nonatomic, retain) UIWindow    * window;

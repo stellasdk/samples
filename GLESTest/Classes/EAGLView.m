@@ -69,19 +69,19 @@ static const GLchar      * fragmentShaderSource = " \
 ";
 
 
-static GLuint initShader (GLenum shaderType, const char * source) 
+static GLuint initShader (GLenum shaderType, const char * source)
 {
         GLuint shader = glCreateShader (shaderType);
         if (!shader) {
                 NSLog (@"failed to create shader");
                 return 0;
         }
-            
+
         glShaderSource (shader, 1, &source, NULL);
-        
+
         glCompileShader (shader);
 
-        GLint compiled = 0;        
+        GLint compiled = 0;
         glGetShaderiv (shader, GL_COMPILE_STATUS, &compiled);
         if (!compiled) {
                 NSLog (@"failed to compile shader");
@@ -117,7 +117,7 @@ static GLuint initProgram (const char * vertexSource, const char * fragmentSourc
 
         glLinkProgram (program);
         GLint linkStatus        = GL_FALSE;
-        
+
         glGetProgramiv (program, GL_LINK_STATUS, &linkStatus);
         if (linkStatus != GL_TRUE) {
                 NSLog (@"failed to link program");
@@ -134,7 +134,7 @@ static GLuint initProgram (const char * vertexSource, const char * fragmentSourc
 
 + (Class) layerClass
 {
-	    return [CAEAGLLayer class];
+        return [CAEAGLLayer class];
 }
 
 
@@ -143,30 +143,35 @@ static GLuint initProgram (const char * vertexSource, const char * fragmentSourc
         self    = [super initWithFrame: frame];
         if (! self)     return nil;
 
-		// Get the layer
-		CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
-		
-		eaglLayer.opaque = YES;
-		eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-										[NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
-		
-		context     = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-		
-		if(!context || ![EAGLContext setCurrentContext:context] || ![self createFramebuffer]) {
-			[self release];
-			return nil;
-		}
-		
-		animating               = FALSE;
-		animationFrameInterval  = 1;
-		displayLink             = nil;
-		animationTimer          = nil;
+        // Get the layer
+        CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
 
-		[self setupView];
-		[self drawView];
+        eaglLayer.opaque = YES;
+        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
 
-	
-	    return self;
+    #if defined (RENDER_USING_ES2)
+        context     = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]; // What about EGL_CONTEXT_CLIENT_VERSION ?
+    #else
+        context     = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1]; // What about EGL_CONTEXT_CLIENT_VERSION ?
+    #endif
+
+
+        if(!context || ![EAGLContext setCurrentContext:context] || ![self createFramebuffer]) {
+            [self release];
+            return nil;
+        }
+
+        animating               = FALSE;
+
+        animationFrameInterval  = 1;
+        animationTimer          = nil;
+
+        [self setupView];
+        [self drawView];
+
+
+        return self;
 }
 
 - (void) dealloc
@@ -174,94 +179,104 @@ static GLuint initProgram (const char * vertexSource, const char * fragmentSourc
         if([EAGLContext currentContext] == context) {
                 [EAGLContext setCurrentContext: nil];
         }
-	
-	    [context release];
-	    context = nil;
-	
-	    [super dealloc];
+
+        [context release];
+        context = nil;
+
+        [super dealloc];
 }
 
 
 - (void) layoutSubviews
 {
-    	[EAGLContext setCurrentContext: context];
-    	[self destroyFramebuffer];
-    	[self createFramebuffer];
-    	[self drawView];
+        [EAGLContext setCurrentContext: context];
+        [self destroyFramebuffer];
+        [self createFramebuffer];
+        [self drawView];
 }
 
 
 - (BOOL) createFramebuffer
 {
-    	glGenFramebuffersOES (1, &viewFramebuffer);
-    	glGenRenderbuffersOES (1, &viewRenderbuffer);
-	
-    	glBindFramebufferOES (GL_FRAMEBUFFER_OES, viewFramebuffer);
-    	glBindRenderbufferOES (GL_RENDERBUFFER_OES, viewRenderbuffer);
-    	[context renderbufferStorage: GL_RENDERBUFFER_OES fromDrawable:(id<EAGLDrawable>)self.layer];
-    	glFramebufferRenderbufferOES (GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, viewRenderbuffer);
-	
-    	glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
-    	glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
-	
-    	if (glCheckFramebufferStatusOES (GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
-        		NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
-        		return NO;
-    	}
-	
-    	return YES;
+        glGenFramebuffersOES (1, &viewFramebuffer);
+        glGenRenderbuffersOES (1, &viewRenderbuffer);
+
+        glBindFramebufferOES (GL_FRAMEBUFFER_OES, viewFramebuffer);
+        glBindRenderbufferOES (GL_RENDERBUFFER_OES, viewRenderbuffer);
+        [context renderbufferStorage: GL_RENDERBUFFER_OES fromDrawable:(id<EAGLDrawable>)self.layer];
+        glFramebufferRenderbufferOES (GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, viewRenderbuffer);
+
+        glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
+        glGetRenderbufferParameterivOES (GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
+
+        if (glCheckFramebufferStatusOES (GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
+                NSLog (@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES (GL_FRAMEBUFFER_OES));
+                return NO;
+        }
+
+        return YES;
 }
 
 
 - (void) destroyFramebuffer
 {
-    	glDeleteFramebuffersOES (1, &viewFramebuffer);
-    	viewFramebuffer = 0;
-    	glDeleteRenderbuffersOES (1, &viewRenderbuffer);
-    	viewRenderbuffer = 0;
-	
-    	if(depthRenderbuffer) {
-        		glDeleteRenderbuffersOES (1, &depthRenderbuffer);
-        		depthRenderbuffer = 0;
-    	}
+        glDeleteFramebuffersOES (1, &viewFramebuffer);
+        viewFramebuffer = 0;
+        glDeleteRenderbuffersOES (1, &viewRenderbuffer);
+        viewRenderbuffer = 0;
+
+        if(depthRenderbuffer) {
+                glDeleteRenderbuffersOES (1, &depthRenderbuffer);
+                depthRenderbuffer = 0;
+        }
 }
 
 
 - (NSInteger) animationFrameInterval
 {
-	    return animationFrameInterval;
+        return animationFrameInterval;
 }
 
 - (void) setAnimationFrameInterval: (NSInteger) frameInterval
 {
-    	if (frameInterval >= 1)
-    	{
-    		    animationFrameInterval      = frameInterval;
-		
-        		if (animating) {
-        			[self stopAnimation];
-        			[self startAnimation];
-        		}
-    	}
+        if (frameInterval >= 1)
+        {
+                animationFrameInterval      = frameInterval;
+
+                if (animating) {
+                    [self stopAnimation];
+                    [self startAnimation];
+                }
+        }
 }
 
 - (void) startAnimation
 {
         if (animating)      return;
 
-        animationTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)((1.0 / 60.0) * animationFrameInterval) target:self selector:@selector(drawView) userInfo:nil repeats:TRUE];
+#if defined (__STELLA_VERSION_MAX_ALLOWED)
+        displayLink = [NSClassFromString(@"SADisplayLink") displayLinkWithTarget:self selector:@selector(drawView)];
+#else
+        displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(drawView)];
+#endif
+
+        [displayLink setFrameInterval: animationFrameInterval];
+        [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+
         animating = TRUE;
+
 }
 
 - (void) stopAnimation
 {
-        if (! animating)    return;
+        if (!animating)     return;
 
         [displayLink invalidate];
         displayLink = nil;
 
         animating = FALSE;
 }
+
 
 
 
@@ -296,7 +311,7 @@ GLfloat     spriteTexCoords[]     = {
         spriteVertices[3]   = 0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
         spriteVertices[5]   = -0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
         spriteVertices[7]   = -0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
-        
+
 
     #if defined (RENDER_USING_ES2)
         attributeLocation_Vertex    = glGetAttribLocation (shaderProgram, "a_Vertex");
@@ -304,8 +319,6 @@ GLfloat     spriteTexCoords[]     = {
 
         uniformLocation_MVPMatrix   = glGetUniformLocation (shaderProgram, "u_MVPMatrix");
         uniformLocation_Texture     = glGetUniformLocation (shaderProgram, "u_Texture");
-        
-        glUniform1i (uniformLocation_MVPMatrix, 0);
 
         CGAffineTransform       ctm   = SGAffineTransformIdentity;
         GLfloat     matrix[16]  = {
@@ -318,58 +331,56 @@ GLfloat     spriteTexCoords[]     = {
 
         glVertexAttribPointer (attributeLocation_Vertex, 2, GL_FLOAT, GL_FALSE, 0, spriteVertices);
         glEnableVertexAttribArray (attributeLocation_Vertex);
-        
+
         glVertexAttribPointer (attributeLocation_TexCoord, 2, GL_FLOAT, GL_FALSE, 0, spriteTexCoords);
         glEnableVertexAttribArray (attributeLocation_TexCoord);
-    
-    #else
-    	glMatrixMode (GL_MODELVIEW);
-    	glLoadIdentity ();
 
-    	glVertexPointer (2, GL_FLOAT, 0, spriteVertices);
-    	glEnableClientState (GL_VERTEX_ARRAY);
-    	glTexCoordPointer (2, GL_FLOAT, 0, spriteTexCoords);
-    	glEnableClientState (GL_TEXTURE_COORD_ARRAY);
+    #else
+        glMatrixMode (GL_MODELVIEW);
+        glLoadIdentity ();
+
+        glVertexPointer (2, GL_FLOAT, 0, spriteVertices);
+        glEnableClientState (GL_VERTEX_ARRAY);
+        glTexCoordPointer (2, GL_FLOAT, 0, spriteTexCoords);
+        glEnableClientState (GL_TEXTURE_COORD_ARRAY);
     #endif
 
 
         CGImageRef          spriteImage;
         CGContextRef        spriteContext;
         GLubyte           * spriteData;
-        size_t	            width, height;
+        size_t                width, height;
 
-    	spriteImage     = [UIImage imageNamed: @"yeecco-logo.png"].CGImage;
+        spriteImage     = [UIImage imageNamed: @"yeecco-logo.png"].CGImage;
 
         if (! spriteImage) {
                 NSLog (@"failed to read sprite image");
                 return;
-        } 
-            	
-    	// Get the width and height of the image
-    	width       = CGImageGetWidth (spriteImage);
-    	height      = CGImageGetHeight (spriteImage);
-    	
-                
-		spriteData = (GLubyte *) calloc (width * height * 4, sizeof (GLubyte));
-		// Uses the bitmap creation function provided by the Core Graphics framework. 
-		spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
-		// After you create the context, you can draw the sprite image to the context.
-		CGContextDrawImage (spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
-		// You don't need the context at this point, so you need to release it to avoid memory leaks.
-		CGContextRelease (spriteContext);
+        }
 
-		// Use OpenGL ES to generate a name for the texture.
-		glGenTextures (1, &spriteTexture);
-		glBindTexture (GL_TEXTURE_2D, spriteTexture);
-		glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexImage2D (GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+        // Get the width and height of the image
+        width       = CGImageGetWidth (spriteImage);
+        height      = CGImageGetHeight (spriteImage);
 
-		free (spriteData);
 
-		glEnable (GL_TEXTURE_2D);
+        spriteData = (GLubyte *) calloc (width * height * 4, sizeof (GLubyte));
+        // Uses the bitmap creation function provided by the Core Graphics framework.
+        spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width * 4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+        // After you create the context, you can draw the sprite image to the context.
+        CGContextDrawImage (spriteContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), spriteImage);
+        // You don't need the context at this point, so you need to release it to avoid memory leaks.
+        CGContextRelease (spriteContext);
 
-		glBlendFunc (GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-		glEnable (GL_BLEND);
+        // Use OpenGL ES to generate a name for the texture.
+        glGenTextures (1, &spriteTexture);
+        glBindTexture (GL_TEXTURE_2D, spriteTexture);
+        glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexImage2D (GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+
+        free (spriteData);
+
+        glBlendFunc (GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable (GL_BLEND);
 
 }
 
@@ -377,28 +388,28 @@ GLfloat     spriteTexCoords[]     = {
 
 - (void) drawView
 {
-    	[EAGLContext setCurrentContext: context];
-    	glBindFramebufferOES (GL_FRAMEBUFFER_OES, viewFramebuffer);
+        [EAGLContext setCurrentContext: context];
+        glBindFramebufferOES (GL_FRAMEBUFFER_OES, viewFramebuffer);
 
     #if defined (__STELLA_VERSION_MAX_ALLOWED) && defined (__STELLA_NANDROID)
         glViewport (0, 0, backingWidth, backingHeight);
     #endif
 
-        static GLfloat  hue     = 0.0f;    
+        static GLfloat  hue     = 0.0f;
         GLfloat r       = (1.0f + sin(hue - 2.0f * M_PI / 3.0f)) / 3.0f;
         GLfloat g       = (1.0f + sin(hue)) / 3.0f;
         GLfloat b       = (1.0f + sin(hue + 2.0f * M_PI / 3.0f)) / 3.0f;
-    
+
         glClearColor (r, g, b, 1.0f);
-        hue       += 0.03f;    
+        hue       += 0.03f;
 
 
-    	glClear (GL_COLOR_BUFFER_BIT);
+        glClear (GL_COLOR_BUFFER_BIT);
         glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
 
-	
-    	glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
-    	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
+
+        glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
+        [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
 
