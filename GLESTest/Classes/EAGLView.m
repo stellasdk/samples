@@ -394,6 +394,11 @@ GLfloat     spriteTexCoords[]     = {
 
         free (spriteData);
 
+    #if defined (RENDER_USING_ES2)
+    #else
+        glEnable (GL_TEXTURE_2D);
+    #endif
+
         glBlendFunc (GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
         glEnable (GL_BLEND);
 
