@@ -12,7 +12,6 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
 		3A566067163109C800BD900E /* Info-Stella.plist in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A5660661631091000BD900E /* Info-Stella.plist */; };
 		3ee3bb6a558d3efd3456bbc9 /* libStellaGraphics.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e37c05cb8f426807403ece23 /* libStellaGraphics.so */; };
-		563FA4E9160064E70037FD7B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 563FA4E6160064E70037FD7B /* Common.m */; };
 		613b59c54ee0ee8f7d484490 /* libStellaKit.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e656c59691b08d3a8aec1f95 /* libStellaKit.so */; };
 		6fce77d576827ad04ae66144 /* libopenal.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = ec627326f1255e11617930b9 /* libopenal.so */; };
 		8f1b27725683da30bcf9e328 /* libfreetype.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = 7544245706e48d6a824f6518 /* libfreetype.so */; };
@@ -240,7 +239,6 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */,
 				b775b669ff5ec500e5bfcad3 /* android-main.m in Sources */,
-				563FA4E9160064E70037FD7B /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
