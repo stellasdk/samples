@@ -10,6 +10,7 @@
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		3A566067163109C800BD900E /* Info-Stella.plist in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A5660661631091000BD900E /* Info-Stella.plist */; };
 		3ee3bb6a558d3efd3456bbc9 /* libStellaGraphics.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e37c05cb8f426807403ece23 /* libStellaGraphics.so */; };
 		563FA4E9160064E70037FD7B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 563FA4E6160064E70037FD7B /* Common.m */; };
 		613b59c54ee0ee8f7d484490 /* libStellaKit.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e656c59691b08d3a8aec1f95 /* libStellaKit.so */; };
@@ -26,6 +27,7 @@
 			dstPath = "$(SOURCE_ROOT)/$(PRODUCT_NAME)-android/assets/Resources";
 			dstSubfolderSpec = 0;
 			files = (
+				3A566067163109C800BD900E /* Info-Stella.plist in Copy Files (assets) */,
 			);
 			name = "Copy Files (assets)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +63,7 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A5660661631091000BD900E /* Info-Stella.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-Stella.plist"; path = "Resources/Info-Stella.plist"; sourceTree = "<group>"; };
 		563FA4E5160064E70037FD7B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		563FA4E6160064E70037FD7B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		7544245706e48d6a824f6518 /* libfreetype.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libfreetype.so; path = "/opt/StellaSDK/arm-google-android/usr/lib/libfreetype.so"; sourceTree = "<absolute>"; };
@@ -133,6 +136,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A5660661631091000BD900E /* Info-Stella.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
