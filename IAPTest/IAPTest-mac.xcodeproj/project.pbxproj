@@ -11,9 +11,9 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
 		354f8eaa91676ef656615dae /* StellaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6663887ebc706fb9d8a7bc79 /* StellaKit.framework */; };
+		3A56606E163120AB00BD900E /* yeecco-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E33D3EF31602DB5D00EB0C58 /* yeecco-logo.png */; };
 		5805DAB01613FC7C0015B5AC /* StellaStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = f112cb9161c4544f1fe3ae17 /* StellaStore.framework */; };
 		7a89b859429947ed24700951 /* libGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46c60494b00cba0378dcef60 /* libGL.dylib */; };
-		E33D3EF41602DB5D00EB0C58 /* yeecco-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E33D3EF31602DB5D00EB0C58 /* yeecco-logo.png */; };
 		bbae2ab69808a11d7931f9a3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9bff62be53a7baa734516390 /* Foundation.framework */; };
 		bed442f2ad40bf346e95bd5e /* StellaGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69a556b2f2938f0170d07a0a /* StellaGraphics.framework */; };
 /* End PBXBuildFile section */
@@ -218,7 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E33D3EF41602DB5D00EB0C58 /* yeecco-logo.png in Resources */,
+				3A56606E163120AB00BD900E /* yeecco-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
