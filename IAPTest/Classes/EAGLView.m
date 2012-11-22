@@ -14,9 +14,14 @@
 
 @implementation EAGLView
 
-@synthesize     animating;
-@dynamic        animationFrameInterval;
-
+@synthesize     delegate;
+@synthesize     shine;
+@synthesize     googleplayEnabled;
+@synthesize     tapjoyEnabled;
+@synthesize     amazonappsEnabled;
+@synthesize     chartboostEnabled;
+@synthesize     samsungappsEnabled;
+@synthesize     adcolonyEnabled;
 
 + (Class) layerClass
 {
@@ -33,7 +38,7 @@
         CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
 
         eaglLayer.opaque = YES;
-        eaglLayer.drawableProperties    = 
+        eaglLayer.drawableProperties    =
         [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
 
@@ -50,9 +55,9 @@
         displayLink             = nil;
 
 
+
         [self setupView];
         [self drawView];
-
 
         return self;
 }
@@ -176,48 +181,27 @@ GLfloat     spriteTexCoords[]     = {
 };
 
 
-- (void) setupView
+- (GLuint) textureFromImageNamed: (NSString *) name
 {
-
-        glViewport (0, 0, backingWidth, backingHeight);
-
-        spriteVertices[1]   = 0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
-        spriteVertices[3]   = 0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
-        spriteVertices[5]   = -0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
-        spriteVertices[7]   = -0.5f * (GLfloat) backingWidth / (GLfloat) backingHeight;
-
-        buttonFrame.origin.x        = backingWidth/4.0f;
-        buttonFrame.origin.y        = backingHeight/2.0f - backingWidth/4.0f;
-        buttonFrame.size.width      = backingWidth/2.0f;
-        buttonFrame.size.height     = backingWidth/2.0f;
-
-
-        glMatrixMode (GL_MODELVIEW);
-        glLoadIdentity ();
-
-        glVertexPointer (2, GL_FLOAT, 0, spriteVertices);
-        glEnableClientState (GL_VERTEX_ARRAY);
-        glTexCoordPointer (2, GL_FLOAT, 0, spriteTexCoords);
-        glEnableClientState (GL_TEXTURE_COORD_ARRAY);
-
-
-
         CGImageRef          spriteImage;
         CGContextRef        spriteContext;
         GLubyte           * spriteData;
-        size_t                width, height;
+        size_t              width;
+        size_t              height;
 
-        spriteImage     = [UIImage imageNamed: @"buy-me.png"].CGImage;
+        spriteImage     = [UIImage imageNamed: name].CGImage;
 
         if (! spriteImage) {
                 NSLog (@"failed to read sprite image");
-                return;
+                return 0;
         }
 
         // Get the width and height of the image
         width       = CGImageGetWidth (spriteImage);
         height      = CGImageGetHeight (spriteImage);
 
+
+        GLuint      spriteTexture;
 
         spriteData = (GLubyte *) calloc (width * height * 4, sizeof (GLubyte));
         // Uses the bitmap creation function provided by the Core Graphics framework.
@@ -235,14 +219,59 @@ GLfloat     spriteTexCoords[]     = {
 
         free (spriteData);
 
-        glEnable (GL_TEXTURE_2D);
+        return spriteTexture;
+}
 
+- (void) loadSpriteVerticesForFrame: (CGRect) frame
+{
+        spriteVertices[0]   = frame.origin.x * 2.0f / (GLfloat) backingWidth - 1.0f;
+        spriteVertices[1]   = 1.0f - frame.origin.y * 2.0f / (GLfloat) backingHeight;
+
+        spriteVertices[2]   = (frame.origin.x+frame.size.width) * 2.0f / (GLfloat) backingWidth - 1.0f;
+        spriteVertices[3]   = spriteVertices[1];
+
+        spriteVertices[4]   = spriteVertices[0];
+        spriteVertices[5]   = 1.0f - (frame.origin.y+frame.size.height) * 2.0f / (GLfloat) backingHeight;
+
+        spriteVertices[6]   = spriteVertices[2];
+        spriteVertices[7]   = spriteVertices[5];
+
+        glVertexPointer (2, GL_FLOAT, 0, spriteVertices);
+}
+
+- (void) setupView
+{
+        glViewport (0, 0, backingWidth, backingHeight);
+
+        glMatrixMode (GL_MODELVIEW);
+        glLoadIdentity ();
+
+        glVertexPointer (2, GL_FLOAT, 0, spriteVertices);
+        glEnableClientState (GL_VERTEX_ARRAY);
+        glTexCoordPointer (2, GL_FLOAT, 0, spriteTexCoords);
+        glEnableClientState (GL_TEXTURE_COORD_ARRAY);
+
+        googleplayButtonFrame           = CGRectMake (20.0f, 32.0f, 128.0f, 128.0f);
+        googleplayTexture               = [self textureFromImageNamed: @"Googleplay.png"];
+
+        tapjoyButtonFrame               = CGRectMake (172.0f, 32.0f, 128.0f, 128.0f);
+        tapjoyTexture                   = [self textureFromImageNamed: @"Tapjoy.png"];
+
+        amazonappsButtonFrame           = CGRectMake (20.0f, 176.0f, 128.0f, 128.0f);
+        amazonappsTexture               = [self textureFromImageNamed: @"Amazonapps.png"];
+
+        chartboostButtonFrame           = CGRectMake (172.0f, 176.0f, 128.0f, 128.0f);
+        chartboostTexture               = [self textureFromImageNamed: @"Chartboost.png"];
+
+        samsungappsButtonFrame          = CGRectMake (20.0f, 320.0f, 128.0f, 128.0f);
+        samsungappsTexture              = [self textureFromImageNamed: @"Samsungapps.png"];
+
+        adcolonyButtonFrame             = CGRectMake (172.0f, 320.0f, 128.0f, 128.0f);
+        adcolonyTexture                 = [self textureFromImageNamed: @"Adcolony.png"];
+
+        glEnable (GL_TEXTURE_2D);
         glBlendFunc (GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
         glEnable (GL_BLEND);
-
-
-        [SKPaymentQueue setSamsungPlasmaItemGroupID: @"100000008752"];
-        [SKPaymentQueue setSamsungPlasmaDeveloperMode];
 }
 
 - (void) drawView
@@ -269,8 +298,30 @@ GLfloat     spriteTexCoords[]     = {
         }
 
         glClear (GL_COLOR_BUFFER_BIT);
+
+        [self loadSpriteVerticesForFrame: googleplayButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, googleplayEnabled ? googleplayTexture : googleplayDisabledTexture);
         glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
 
+        [self loadSpriteVerticesForFrame: tapjoyButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, tapjoyEnabled ? tapjoyTexture : tapjoyDisabledTexture);
+        glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
+
+        [self loadSpriteVerticesForFrame: amazonappsButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, amazonappsEnabled ? amazonappsTexture : amazonappsDisabledTexture);
+        glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
+
+        [self loadSpriteVerticesForFrame: chartboostButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, chartboostEnabled ? chartboostTexture : chartboostDisabledTexture);
+        glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
+
+        [self loadSpriteVerticesForFrame: samsungappsButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, samsungappsEnabled ? samsungappsTexture : samsungappsDisabledTexture);
+        glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
+       
+        [self loadSpriteVerticesForFrame: adcolonyButtonFrame];
+        glBindTexture (GL_TEXTURE_2D, adcolonyEnabled ? adcolonyTexture : adcolonyDisabledTexture);
+        glDrawArrays (GL_TRIANGLE_STRIP, 0, 4);
 
         glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
         [context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -281,91 +332,30 @@ GLfloat     spriteTexCoords[]     = {
         UITouch       * touch   = [touches anyObject];
         CGPoint         location    = [touch locationInView: self];
 
-        if (! CGRectContainsPoint (buttonFrame, location)) {
-                return;
+        if (googleplayEnabled && CGRectContainsPoint (googleplayButtonFrame, location)) {
+                [delegate buyShineGooglePlay];
         }
-
-        [self buyToShine];
-}
-
-
-
-- (void) buyToShine
-{
-        NSMutableArray      * productIdentifierList;
-        productIdentifierList = [[NSMutableArray alloc] initWithCapacity: 2];
-
-        [productIdentifierList addObject: [NSString stringWithFormat: @"000000012717"]];     /* buy this to shine */
-        [productIdentifierList addObject: [NSString stringWithFormat: @"000000012725"]];     /* unavailable */
-
-        if ([SKPaymentQueue canMakePayments]) {
-                [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
-
-                SKProductsRequest     * request     =
-                [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithArray: productIdentifierList]];
-
-                request.delegate    = self;
-                [request start];
+        else if (tapjoyEnabled && CGRectContainsPoint (tapjoyButtonFrame, location)) {
+                [delegate showOffersTJC];
         }
-        else {
-                NSLog (@"cannot make payment");
+        else if (amazonappsEnabled && CGRectContainsPoint (amazonappsButtonFrame, location)) {
+                [delegate buyShineAmazon];
+        }
+        else if (chartboostEnabled && CGRectContainsPoint (chartboostButtonFrame, location)) {
+                [delegate showInterstitialCB];
+        }
+        else if (samsungappsEnabled && CGRectContainsPoint (samsungappsButtonFrame, location)) {
+                [delegate buyShinePlasma];
+                [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(plasmaPurchased) name: @"plasmaPurchased" object: nil];
+        }
+        else if (adcolonyEnabled && CGRectContainsPoint (adcolonyButtonFrame, location)) {
+                [delegate showADC];
         }
 }
 
-- (void) productsRequest: (SKProductsRequest *) request didReceiveResponse: (SKProductsResponse *) response
+- (void) plasmaPurchased
 {
-        if (response.products.count != 1) {
-                NSLog (@"product request contains no object");
-                return;
-        }
-
-        SKProduct     * product     = [response.products objectAtIndex: 0];
-        SKPayment     * payment     = [SKPayment paymentWithProductIdentifier: product.productIdentifier];
-        [[SKPaymentQueue defaultQueue] addPayment: payment];
+        shine   = YES;
 }
-
-
-
-- (void) paymentQueue: (SKPaymentQueue *) queue updatedTransactions: (NSArray *) transactions
-{
-        NSLog  (@"payment queue updated transactions");
-        for (SKPaymentTransaction * transaction in transactions) {
-                switch (transaction.transactionState) {
-                        case SKPaymentTransactionStatePurchased:
-                                [self completeTransaction: transaction];
-                                break;
-
-                        case SKPaymentTransactionStateFailed:
-                                [self failedTransaction: transaction];
-                                break;
-
-                        case SKPaymentTransactionStateRestored:
-                                [self restoreTransaction: transaction];
-                                break;
-
-                        default: ;
-                }
-        }
-}
-
-- (void) failedTransaction: (SKPaymentTransaction *) transaction
-{
-        NSLog  (@"failed transaction");
-        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-}
-
-- (void) restoreTransaction: (SKPaymentTransaction *) transaction
-{
-        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-}
-
-- (void) completeTransaction: (SKPaymentTransaction *) transaction
-{
-        shine       = YES;
-        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-}
-
-
-
 
 @end

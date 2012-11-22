@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.yourcompany.IAPTest"
-        android:versionCode="1"
-        android:versionName="1.0">
+        android:versionCode="2"
+        android:versionName="1.2">
 
     <!-- This is the platform API where NativeActivity was introduced. -->
     <uses-sdk android:minSdkVersion="8" />
+
+    <!-- Required permission to use in-app billing. -->
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <!-- This .apk has no Java code itself, so set hasCode to false. -->
     <application android:label="@string/app_name"
@@ -30,21 +33,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <service android:name="org.stella.lib.BillingService" />
+        
+        <receiver android:name="org.stella.lib.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
+                <action android:name="com.android.vending.billing.RESPONSE_CODE" />
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
 
-<!--
         <activity android:name="com.tapjoy.TJCOffersWebView" android:configChanges="keyboardHidden|orientation" />
         <activity android:name="com.tapjoy.TapjoyFeaturedAppWebView" android:configChanges="keyboardHidden|orientation" />
         <activity android:name="com.tapjoy.TapjoyVideoView" android:configChanges="keyboardHidden|orientation" />
--->
 
-<!--
+
+        <activity android:name="com.chartboost.sdk.CBDialogActivity"
+                  android:configChanges="orientation|keyboard|keyboardHidden"
+                  android:windowSoftInputMode="adjustResize"
+                  android:theme="@android:style/Theme.Translucent"
+                  android:launchMode="singleTop">
+        </activity>
+
+        <activity android:name="com.jirbo.adcolony.AdColonyOverlay" android:configChanges="keyboardHidden|orientation" android:theme= "@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyFullscreen" android:configChanges="keyboardHidden|orientation" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyBrowser" android:configChanges="keyboardHidden|orientation" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
         <receiver android:name="com.amazon.inapp.purchasing.ResponseReceiver">
             <intent-filter>
                 <action android:name="com.amazon.inapp.purchasing.NOTIFY"
                         android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
             </intent-filter>
         </receiver>
--->
 
     </application>
 
@@ -52,5 +73,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
 </manifest>

@@ -34,6 +34,12 @@ include $(PREBUILT_SHARED_LIBRARY)
 
 
 include $(CLEAR_VARS)
+LOCAL_MODULE    := StellaMarket
+LOCAL_SRC_FILES := libStellaMarket.so
+include $(PREBUILT_SHARED_LIBRARY)
+
+
+include $(CLEAR_VARS)
 LOCAL_MODULE    := IAPTest
 LOCAL_SRC_FILES := libIAPTest.so
 include $(PREBUILT_SHARED_LIBRARY)

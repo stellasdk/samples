@@ -16,6 +16,7 @@ public class MainActivity extends StellaNativeActivity
                 System.loadLibrary ("StellaGraphics");
                 System.loadLibrary ("StellaKit");
                 System.loadLibrary ("StellaStore");
+                System.loadLibrary ("StellaMarket");
                 System.loadLibrary ("IAPTest");
 
 

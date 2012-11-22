@@ -10,6 +10,13 @@
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
+		3A76B5291659E69E00E5547C /* libStellaMarket.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = 3A76B5271659E69600E5547C /* libStellaMarket.so */; };
+		3A76B5301659E79B00E5547C /* Adcolony.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52E1659E78D00E5547C /* Adcolony.png */; };
+		3A76B5311659E79D00E5547C /* Amazonapps.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52F1659E78D00E5547C /* Amazonapps.png */; };
+		3A76B5321659E79F00E5547C /* Chartboost.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52A1659E77500E5547C /* Chartboost.png */; };
+		3A76B5331659E7A000E5547C /* Googleplay.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52B1659E77500E5547C /* Googleplay.png */; };
+		3A76B5341659E7A200E5547C /* Samsungapps.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52C1659E77500E5547C /* Samsungapps.png */; };
+		3A76B5351659E7A300E5547C /* Tapjoy.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 3A76B52D1659E77500E5547C /* Tapjoy.png */; };
 		3ee3bb6a558d3efd3456bbc9 /* libStellaGraphics.so in Copy Files (libs) */ = {isa = PBXBuildFile; fileRef = e37c05cb8f426807403ece23 /* libStellaGraphics.so */; };
 		56AD3CE31616AE1F00E2520B /* Info-Stella.plist in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 56AD3CE21616AE1800E2520B /* Info-Stella.plist */; };
 		5805DB4F16140FE00015B5AC /* buy-me.png in Copy Files (assets) */ = {isa = PBXBuildFile; fileRef = 5805DB4E16140FCE0015B5AC /* buy-me.png */; };
@@ -28,6 +35,12 @@
 			dstPath = "$(SOURCE_ROOT)/$(PRODUCT_NAME)-android/assets/Resources";
 			dstSubfolderSpec = 0;
 			files = (
+				3A76B5301659E79B00E5547C /* Adcolony.png in Copy Files (assets) */,
+				3A76B5331659E7A000E5547C /* Googleplay.png in Copy Files (assets) */,
+				3A76B5351659E7A300E5547C /* Tapjoy.png in Copy Files (assets) */,
+				3A76B5341659E7A200E5547C /* Samsungapps.png in Copy Files (assets) */,
+				3A76B5311659E79D00E5547C /* Amazonapps.png in Copy Files (assets) */,
+				3A76B5321659E79F00E5547C /* Chartboost.png in Copy Files (assets) */,
 				5805DB4F16140FE00015B5AC /* buy-me.png in Copy Files (assets) */,
 				56AD3CE31616AE1F00E2520B /* Info-Stella.plist in Copy Files (assets) */,
 			);
@@ -40,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				3A76B5291659E69E00E5547C /* libStellaMarket.so in Copy Files (libs) */,
 				6fce77d576827ad04ae66144 /* libopenal.so in Copy Files (libs) */,
 				8f1b27725683da30bcf9e328 /* libfreetype.so in Copy Files (libs) */,
 				eaa74fc1954913e94ec76425 /* libFoundation.so in Copy Files (libs) */,
@@ -66,6 +80,13 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A76B5271659E69600E5547C /* libStellaMarket.so */ = {isa = PBXFileReference; lastKnownFileType = file; name = libStellaMarket.so; path = "../../../../opt/StellaSDK/arm-google-android/System/Library/Frameworks/libStellaMarket.so"; sourceTree = "<group>"; };
+		3A76B52A1659E77500E5547C /* Chartboost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chartboost.png; sourceTree = "<group>"; };
+		3A76B52B1659E77500E5547C /* Googleplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Googleplay.png; sourceTree = "<group>"; };
+		3A76B52C1659E77500E5547C /* Samsungapps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Samsungapps.png; sourceTree = "<group>"; };
+		3A76B52D1659E77500E5547C /* Tapjoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tapjoy.png; sourceTree = "<group>"; };
+		3A76B52E1659E78D00E5547C /* Adcolony.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Adcolony.png; sourceTree = "<group>"; };
+		3A76B52F1659E78D00E5547C /* Amazonapps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Amazonapps.png; sourceTree = "<group>"; };
 		563FA4E5160064E70037FD7B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		563FA4E6160064E70037FD7B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		56AD3CE21616AE1800E2520B /* Info-Stella.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Stella.plist"; sourceTree = "<group>"; };
@@ -95,6 +116,7 @@
 		0820fe3515f49620b9f5d5cb /* StellaSDK frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A76B5271659E69600E5547C /* libStellaMarket.so */,
 				ec627326f1255e11617930b9 /* libopenal.so */,
 				7544245706e48d6a824f6518 /* libfreetype.so */,
 				0d49550fbe63dd4b9c0b6098 /* libFoundation.so */,
@@ -140,6 +162,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A76B52E1659E78D00E5547C /* Adcolony.png */,
+				3A76B52F1659E78D00E5547C /* Amazonapps.png */,
+				3A76B52A1659E77500E5547C /* Chartboost.png */,
+				3A76B52B1659E77500E5547C /* Googleplay.png */,
+				3A76B52C1659E77500E5547C /* Samsungapps.png */,
+				3A76B52D1659E77500E5547C /* Tapjoy.png */,
 				5805DB4E16140FCE0015B5AC /* buy-me.png */,
 				56AD3CE21616AE1800E2520B /* Info-Stella.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -216,6 +244,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "IAPTest-android" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -287,6 +318,7 @@
 					"-lStellaKit",
 					"-Wl,--no-undefined",
 					"-lStellaStore",
+					"-lStellaMarket",
 				);
 				PRODUCT_NAME = IAPTest;
 				SDKROOT = macosx;
@@ -329,6 +361,7 @@
 					"-Wl,--no-undefined",
 					"-s",
 					"-lStellaStore",
+					"-lStellaMarket",
 				);
 				PRODUCT_NAME = IAPTest;
 				SDKROOT = macosx;
