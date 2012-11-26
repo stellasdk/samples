@@ -44,6 +44,10 @@
         [alertView release];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        NSLog (@"Alert view clicked");
+}
 @end
 
 void Java_com_yourcompany_JNITest_StellaSDKSample_nativeCallbackMessage (JNIEnv * env, jobject thiz, jstring str_message)
