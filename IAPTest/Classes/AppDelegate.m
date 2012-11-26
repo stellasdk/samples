@@ -166,7 +166,7 @@ static BOOL    _plasmaPurchasing       = NO;
 
         for (int i = 0; i < response.products.count; i++) {
                 SKProduct     * product     = [response.products objectAtIndex: i];
-                NSLog (@"AmazonIAP sku: %@", product.productIdentifier);
+                NSLog (@"IAP sku: %@", product.productIdentifier);
                 SKPayment     * payment     = [SKPayment paymentWithProductIdentifier: product.productIdentifier];
 
                 [[SKPaymentQueue defaultQueue] addPayment: payment];
